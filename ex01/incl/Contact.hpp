@@ -6,7 +6,6 @@ class Contact
 {
 	public:
 		Contact();
-		Contact(int index, std::string firstName, std::string lastName, std::string nickName);
 		Contact(const Contact &other);
 		Contact &operator=(const Contact &other);
 		~Contact();
