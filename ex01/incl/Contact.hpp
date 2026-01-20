@@ -1,16 +1,18 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: anpollan <anpollan@student.hive.fi>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/20 13:34:11 by anpollan          #+#    #+#             */
-/*   Updated: 2026/01/20 13:39:07 by anpollan         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#pragma once
+# include <iostream>
+# include <string>
 
-#ifndef CONTACT_HPP
-# define CONTACT_HPP
-
-#endif
+class Contact
+{
+	public:
+		Contact();
+		Contact(int index, std::string firstName, std::string lastName, std::string nickName);
+		Contact(const Contact &other);
+		Contact &operator=(const Contact &other);
+		~Contact();
+	private:
+		int			_index;
+		std::string	_firstName;
+		std::string	_lastName;
+		std::string	_nickName;
+};

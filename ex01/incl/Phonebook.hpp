@@ -1,16 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: anpollan <anpollan@student.hive.fi>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/20 13:33:37 by anpollan          #+#    #+#             */
-/*   Updated: 2026/01/20 13:34:06 by anpollan         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
-
-#endif
+#pragma once
+# include <iostream>
+# include <string>
