@@ -3,4 +3,4 @@
 #include "Contact.hpp"
 
 void		clearScreen();
-std::string	truncateMaxTen(std::string str, size_t maxLen);
+std::string	truncateStr(std::string str, size_t maxLen);

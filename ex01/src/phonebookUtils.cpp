@@ -1,6 +1,6 @@
 #include "phonebookUtils.hpp"
 
-std::string	truncateMaxTen(const std::string str, const size_t maxLen)
+std::string	truncateStr(const std::string str, const size_t maxLen)
 {
 	if (str.length() <= maxLen)
 		return (str);
