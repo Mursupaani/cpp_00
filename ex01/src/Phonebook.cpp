@@ -1,6 +1,5 @@
 #include "Phonebook.hpp"
-#include <cstdio>
-#include <iostream>
+#include "phonebookUtils.hpp"
 
 Phonebook::Phonebook() : _pos(-1), _size(0)
 {
@@ -44,18 +43,53 @@ void	Phonebook::addContact()
 		_size = _max;
 }
 
-void	Phonebook::printContact()
+void	Phonebook::printSearchWindow()
 {
 	if (_size == 0)
 	{
 		std::cout << "No saved contacts" << std::endl;
 		return ;
 	}
-	for (int i = 0; i < _size; ++i)
-	{
-		std::cout << _contacts[i].getFirstName() + " " + _contacts[i].getLastName() + " " + _contacts[i].getNickName() + " " + _contacts[i].getPhoneNumber() + " " + _contacts[i].getDarkestSecret() << std::endl;
-	}
+	printSearchHeader();
+	printContactsForSearch();
 	std::cout << "Press any key to continue..." << std::endl;
 	std::cin.ignore();
 	std::getchar();
+}
+
+void	Phonebook::printSearchHeader()
+{
+	std::cout << "|";
+	std::cout << std::setw (10) << std::right;
+	std::cout << "INDEX";
+	std::cout << "|";
+	std::cout << std::setw (10) << std::right;
+	std::cout << "FIRST NAME";
+	std::cout << "|";
+	std::cout << std::setw (10) << std::right;
+	std::cout << "LAST NAME";
+	std::cout << "|";
+	std::cout << std::setw (10) << std::right;
+	std::cout << "NICK NAME";
+	std::cout << "|" << std::endl;
+}
+
+void	Phonebook::printContactsForSearch()
+{
+	for (int i = 0; i < _size; ++i)
+	{
+		std::cout << "|";
+		std::cout << std::setw (10) << std::right;
+		std::cout << i;
+		std::cout << "|";
+		std::cout << std::setw (10) << std::right;
+		std::cout << truncateMaxTen(_contacts[i].getFirstName(), 10);
+		std::cout << "|";
+		std::cout << std::setw (10) << std::right;
+		std::cout << truncateMaxTen(_contacts[i].getLastName(), 10);
+		std::cout << "|";
+		std::cout << std::setw (10) << std::right;
+		std::cout << truncateMaxTen(_contacts[i].getNickName(), 10);
+		std::cout << "|" << std::endl;
+	}
 }

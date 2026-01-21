@@ -1,10 +1,7 @@
 #include "Phonebook.hpp"
+#include "phonebookUtils.hpp"
 #include <cstdlib>
 
-void clearScreen()
-{
-    std::cout << "\033[2J\033[1;1H";
-}
 
 int	handleUserInput(std::string input, Phonebook &pb)
 {
@@ -12,7 +9,7 @@ int	handleUserInput(std::string input, Phonebook &pb)
 	if (input == "a" || input == "add")
 		pb.addContact();
 	else if (input == "s" || input == "search")
-		pb.printContact();
+		pb.printSearchWindow();
 	else if (input == "e" || input == "exit")
 		std::exit(EXIT_SUCCESS);
 	else

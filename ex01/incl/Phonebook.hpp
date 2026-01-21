@@ -1,5 +1,6 @@
 #pragma once
 # include <iostream>
+# include <iomanip>
 # include <string>
 # include "Contact.hpp"
 
@@ -11,10 +12,13 @@ class Phonebook
 
 		void	addContact();
 		int		getNextPos();
-		void	printContact();
+		void	printSearchWindow();
 	private:
 		static constexpr int	_max = 8;
 		int						_pos;
 		int						_size;
 		Contact					_contacts[_max];
+
+		void	printContactsForSearch();
+		void	printSearchHeader();
 };
