@@ -7,10 +7,14 @@ class Phonebook
 {
 	public:
 		Phonebook();
-		Phonebook(const Phonebook &other);
-		Phonebook &operator=(const Phonebook &other);
 		~Phonebook();
+
+		void	addContact();
+		int		getNextPos();
+		void	printContact();
 	private:
-		Contact _contacts[8];
-		int		_size;
+		static constexpr int	_max = 8;
+		int						_pos;
+		int						_size;
+		Contact					_contacts[_max];
 };

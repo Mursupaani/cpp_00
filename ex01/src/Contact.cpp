@@ -1,36 +1,63 @@
 #include "Contact.hpp"
+#include <string>
 
-Contact::Contact() : _index(0), _firstName("Firstname"), _lastName("Lastname"), _nickName("Nickname")
+Contact::Contact() : _firstName("First name"), _lastName("Last name"),
+_nickName("Nick name"), _phoneNumber("Phone number"), _darkestSecret("Darkest secret")
 {
-	std::cout << "Contact default constructor called" << std::endl;
-}
-
-Contact::Contact(int index, std::string firstName, std::string lastName, std::string nickName) :
-_index(index), _firstName(firstName), _lastName(lastName), _nickName(nickName)
-{
-	std::cout << "Contact parametrized constructor called" << std::endl;
-}
-
-Contact::Contact(const Contact &other) :
-_index(other._index), _firstName(other._firstName),
-_lastName(other._lastName), _nickName(other._nickName)
-{
-	std::cout << "Contact copy constructor called" << std::endl;
-}
-
-Contact& Contact::operator=(const Contact &other)
-{
-	if (this != &other)
-	{
-		this->_index = other._index;
-		this->_firstName = other._firstName;
-		this->_lastName = other._lastName;
-		this->_nickName = other._nickName;
-	}
-	return (*this);
 }
 
 Contact::~Contact()
 {
-	std::cout << "Contact destructor called" << std::endl;
+}
+
+// NOTE: Setters:
+void Contact::setFirstName(std::string firstName)
+{
+	_firstName = firstName;
+}
+
+void Contact::setLastName(std::string lastName)
+{
+	_lastName = lastName;
+}
+
+void Contact::setNickName(std::string nickName)
+{
+	_nickName = nickName;
+}
+
+void Contact::setPhoneNumber(std::string phoneNumber)
+{
+	_phoneNumber = phoneNumber;
+}
+
+void Contact::setDarkestSecret(std::string darkestSecret)
+{
+	_darkestSecret = darkestSecret;
+}
+
+// NOTE: Getters:
+std::string Contact::getFirstName() const
+{
+	return (_firstName);
+}
+
+std::string Contact::getLastName() const
+{
+	return (_lastName);
+}
+
+std::string Contact::getNickName() const
+{
+	return (_nickName);
+}
+
+std::string Contact::getPhoneNumber() const
+{
+	return (_phoneNumber);
+}
+
+std::string Contact::getDarkestSecret() const
+{
+	return (_darkestSecret);
 }
