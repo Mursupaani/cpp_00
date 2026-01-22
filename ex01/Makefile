@@ -1,10 +1,10 @@
 NAME		= phonebook
 
 INCL_DIR	= ./incl/
-H_FILES		= Phonebook.hpp Contact.hpp phonebookUtils.hpp
+H_FILES		= Phonebook.hpp Contact.hpp
 INCLS		= $(addprefix $(INCL_DIR), $(H_FILES))
 
-CPP_FILES	= main.cpp Phonebook.cpp Contact.cpp phonebookUtils.cpp
+CPP_FILES	= main.cpp Phonebook.cpp Contact.cpp
 SRC_DIR		= ./src/
 SRCS		= $(addprefix $(SRC_DIR), $(CPP_FILES))
 

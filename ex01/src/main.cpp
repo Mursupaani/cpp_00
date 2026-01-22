@@ -1,11 +1,8 @@
 #include "Phonebook.hpp"
-#include "phonebookUtils.hpp"
-#include <cstdlib>
-
 
 void	handleUserInput(std::string input, Phonebook &pb)
 {
-	clearScreen();
+	pb.clearScreen();
 	pb.setStatus(0);
 	if (input == "a" || input == "add")
 		pb.addContact();
@@ -31,7 +28,6 @@ std::string getUserInput()
 	return (input);
 }
 
-// FIXME: Move clearscreen to another hpp?
 int	main(void)
 {
 	Phonebook	pb;
@@ -39,7 +35,7 @@ int	main(void)
 
 	while (true)
 	{
-		clearScreen();
+		pb.clearScreen();
 		if (pb.getStatus() == 1)
 			std::cout << "Invalid input \"" << input << "\". Please try again\n" << std::endl;
 		if (pb.getStatus() == 2)

@@ -1,5 +1,4 @@
 #pragma once
-# include <iostream>
 # include <string>
 
 class Contact
@@ -16,11 +15,11 @@ class Contact
 		std::string	getDarkestSecret() const;
 
 		// Setters:
-		void		setFirstName(const std::string firstName);
-		void		setLastName(const std::string lastName);
-		void		setNickName(const std::string nickName);
-		void		setPhoneNumber(const std::string phoneNumber);
-		void		setDarkestSecret(const std::string darkestSecret);
+		void	setFirstName(const std::string firstName);
+		void	setLastName(const std::string lastName);
+		void	setNickName(const std::string nickName);
+		void	setPhoneNumber(const std::string phoneNumber);
+		void	setDarkestSecret(const std::string darkestSecret);
 	private:
 		std::string	_firstName;
 		std::string	_lastName;

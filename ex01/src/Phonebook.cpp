@@ -1,6 +1,4 @@
 #include "Phonebook.hpp"
-#include "phonebookUtils.hpp"
-#include <string>
 
 Phonebook::Phonebook() : _pos(-1), _size(0), _status(0)
 {
@@ -15,9 +13,6 @@ int	Phonebook::getNextPos()
 	_pos++;
 	_pos %= 8;
 	return (_pos);
-	// if (_pos >= 8)
-	// 	_pos = 0;
-	// return (_pos);
 }
 
 void	Phonebook::addContact()
@@ -176,4 +171,16 @@ void	Phonebook::setStatus(int status)
 int	Phonebook::getStatus()
 {
 	return (_status);
+}
+
+std::string	Phonebook::truncateStr(const std::string str, const size_t maxLen)
+{
+	if (str.length() <= maxLen)
+		return (str);
+	return (str.substr(0, maxLen - 1)) + ".";
+}
+
+void Phonebook::clearScreen()
+{
+    std::cout << "\033[2J\033[1;1H";
 }
