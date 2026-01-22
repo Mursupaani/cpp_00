@@ -37,7 +37,8 @@ int	main(void)
 	{
 		pb.clearScreen();
 		if (pb.getStatus() == 1)
-			std::cout << "Invalid input \"" << input << "\". Please try again\n" << std::endl;
+			std::cout << "Invalid input \"" << input
+				<< "\". Please try again\n" << std::endl;
 		if (pb.getStatus() == 2)
 			std::cout << "No saved contacts\n" << std::endl;
 		input = getUserInput();
