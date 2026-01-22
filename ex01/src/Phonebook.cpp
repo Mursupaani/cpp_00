@@ -1,5 +1,6 @@
 #include "Phonebook.hpp"
 #include "phonebookUtils.hpp"
+#include <string>
 
 Phonebook::Phonebook() : _pos(-1), _size(0), _status(0)
 {
@@ -12,9 +13,11 @@ Phonebook::~Phonebook()
 int	Phonebook::getNextPos()
 {
 	_pos++;
-	if (_pos >= 8)
-		return (0);
+	_pos %= 8;
 	return (_pos);
+	// if (_pos >= 8)
+	// 	_pos = 0;
+	// return (_pos);
 }
 
 void	Phonebook::addContact()
@@ -113,8 +116,8 @@ void	Phonebook::chooseContact()
 		break ;
 	}
 	std::cout << "\nPress ENTER to continue..." << std::endl;
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	std::getchar();
+	std::cin.ignore();
+	std::getline(std::cin, input);
 }
 
 void	Phonebook::printContact(int index)
