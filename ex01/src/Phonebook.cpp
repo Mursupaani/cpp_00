@@ -1,4 +1,5 @@
 #include "Phonebook.hpp"
+#include <cstdlib>
 
 Phonebook::Phonebook() : _pos(-1), _size(0), _status(0)
 {
@@ -26,7 +27,8 @@ void	Phonebook::addContact()
 	{
 		clearScreen();
 		std::cout << "Please input first name: " << std::endl;
-		std::getline(std::cin, input);
+		if (!std::getline(std::cin, input))
+			exit(EXIT_SUCCESS);
 	}
 	_contacts[pos].setFirstName(input);
 	input.clear();
@@ -34,7 +36,8 @@ void	Phonebook::addContact()
 	{
 		clearScreen();
 		std::cout << "Please input last name: " << std::endl;
-		std::getline(std::cin, input);
+		if (!std::getline(std::cin, input))
+			exit(EXIT_SUCCESS);
 	}
 	_contacts[pos].setLastName(input);
 	input.clear();
@@ -42,7 +45,8 @@ void	Phonebook::addContact()
 	{
 		clearScreen();
 		std::cout << "Please input nick name: " << std::endl;
-		std::getline(std::cin, input);
+		if (!std::getline(std::cin, input))
+			exit(EXIT_SUCCESS);
 	}
 	_contacts[pos].setNickName(input);
 	input.clear();
@@ -50,7 +54,8 @@ void	Phonebook::addContact()
 	{
 		clearScreen();
 		std::cout << "Please input phone number: " << std::endl;
-		std::getline(std::cin, input);
+		if (!std::getline(std::cin, input))
+			exit(EXIT_SUCCESS);
 	}
 	_contacts[pos].setPhoneNumber(input);
 	input.clear();
@@ -58,7 +63,8 @@ void	Phonebook::addContact()
 	{
 		clearScreen();
 		std::cout << "Please input darkest secret: " << std::endl;
-		std::getline(std::cin, input);
+		if (!std::getline(std::cin, input))
+			exit(EXIT_SUCCESS);
 	}
 	_contacts[pos].setDarkestSecret(input);
 	_size++;
@@ -87,7 +93,8 @@ void	Phonebook::chooseContact()
 	{
 		printContactsForSearch();
 		std::cout << "\nChoose index to get details (or [B]ACK to go back): " << std::endl;
-		std::cin >> input;
+		if (!std::getline(std::cin, input))
+			exit(EXIT_SUCCESS);
 		for (unsigned long i = 0; i < input.length(); ++i)
 			input[i] = std::tolower(input[i]);
 		clearScreen();
@@ -111,8 +118,8 @@ void	Phonebook::chooseContact()
 		break ;
 	}
 	std::cout << "\nPress ENTER to continue..." << std::endl;
-	std::cin.ignore();
-	std::getline(std::cin, input);
+	if (!std::getline(std::cin, input))
+		exit(EXIT_SUCCESS);
 }
 
 void	Phonebook::printContact(int index)

@@ -1,5 +1,6 @@
 #include "Account.hpp"
 #include <iostream>
+#include <ctime>
 
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
@@ -11,12 +12,14 @@ Account::Account(int initial_deposit) : _amount(initial_deposit), _nbDeposits(0)
 	++_nbAccounts;
 	_totalAmount += initial_deposit;
 	_accountIndex = _nbAccounts - 1;
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";amount:"
 		<< _amount << ";created" << std::endl;
 }
 
 Account::~Account()
 {
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";amount:"
 		<< _amount << ";closed" << std::endl;
 }
@@ -43,6 +46,7 @@ int Account::getNbWithdrawals()
 
 void Account::displayAccountsInfos()
 {
+	_displayTimestamp();
 	if (_nbAccounts == 0)
 		return ;
 	std::cout << "accounts:" << getNbAccounts() << ";total:" << getTotalAmount()
@@ -75,7 +79,18 @@ int	Account::checkAmount (void) const
 
 void	Account::displayStatus(void) const
 {
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";amount:" << _amount
 		<< ";deposits:" << _nbDeposits << ";withdrawals:"
 		<< _nbWithdrawals << std::endl;
+}
+
+void	Account::_displayTimestamp(void)
+{
+	std::time_t	now = std::time(0);
+	std::tm		*time = std::localtime(&now);
+	char		str[128];
+
+	std::strftime(str, 128, "[%Y%m%d_%H%M%S] ", time);
+	std::cout << str;
 }
