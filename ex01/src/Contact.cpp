@@ -10,7 +10,6 @@ Contact::~Contact()
 {
 }
 
-// NOTE: Setters:
 void Contact::setFirstName(std::string firstName)
 {
 	_firstName = firstName;
@@ -36,7 +35,6 @@ void Contact::setDarkestSecret(std::string darkestSecret)
 	_darkestSecret = darkestSecret;
 }
 
-// NOTE: Getters:
 std::string Contact::getFirstName() const
 {
 	return (_firstName);

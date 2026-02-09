@@ -1,5 +1,4 @@
 #include "Phonebook.hpp"
-#include <cstdlib>
 
 Phonebook::Phonebook() : _pos(-1), _size(0), _status(0)
 {
@@ -50,7 +49,7 @@ void	Phonebook::addContact()
 	}
 	_contacts[pos].setNickName(input);
 	input.clear();
-	while (input.length() == 0)
+	while (input.length() == 0 || phonenumberIsValid(input) == false)
 	{
 		clearScreen();
 		std::cout << "Please input phone number: " << std::endl;
@@ -190,4 +189,29 @@ std::string	Phonebook::truncateStr(const std::string str, const size_t maxLen)
 void Phonebook::clearScreen()
 {
     std::cout << "\033[2J\033[1;1H";
+}
+
+bool	Phonebook::phonenumberIsValid(std::string number)
+{
+	std::string	validCharacters = "+-() 0123456789";
+	bool		valid;
+
+	for (unsigned long i = 0; i < number.length(); ++i)
+	{
+		valid = false;
+		for (unsigned long j = 0; j < validCharacters.length(); ++j)
+		{
+			if (number[i] == validCharacters[j])
+			{
+				valid = true;
+				break ;
+			}
+		}
+		if (valid == false)
+		{
+			std::cout << "Please use only valid characters " << validCharacters << std::endl;
+			return (false);
+		}
+	}
+	return (true);
 }
