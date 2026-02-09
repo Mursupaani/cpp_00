@@ -27,6 +27,7 @@ class Phonebook
 		void		printSearchHeader();
 		void		chooseContact();
 		void		printContact(int index);
-		bool		phonenumberIsValid(std::string number);
+		// bool		phonenumberIsValid(std::string number);
+		bool		phonenumberIsValid(std::string number, bool &valid);
 		std::string	truncateStr(std::string str, size_t maxLen);
 };

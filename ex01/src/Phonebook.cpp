@@ -19,6 +19,7 @@ void	Phonebook::addContact()
 {
 	std::string	input;
 	int			pos;
+	bool		valid = true;
 
 	std::cout << _size << std::endl;
 	pos = getNextPos();
@@ -49,10 +50,12 @@ void	Phonebook::addContact()
 	}
 	_contacts[pos].setNickName(input);
 	input.clear();
-	while (input.length() == 0 || phonenumberIsValid(input) == false)
+	while (input.length() == 0 || phonenumberIsValid(input, valid) == false)
 	{
 		clearScreen();
 		std::cout << "Please input phone number: " << std::endl;
+		if (valid == false)
+			std::cout << "(Please use only valid characters +-() 0123456789)" << std::endl;
 		if (!std::getline(std::cin, input))
 			exit(EXIT_SUCCESS);
 	}
@@ -191,10 +194,9 @@ void Phonebook::clearScreen()
     std::cout << "\033[2J\033[1;1H";
 }
 
-bool	Phonebook::phonenumberIsValid(std::string number)
+bool	Phonebook::phonenumberIsValid(std::string number, bool &valid)
 {
 	std::string	validCharacters = "+-() 0123456789";
-	bool		valid;
 
 	for (unsigned long i = 0; i < number.length(); ++i)
 	{
@@ -208,10 +210,7 @@ bool	Phonebook::phonenumberIsValid(std::string number)
 			}
 		}
 		if (valid == false)
-		{
-			std::cout << "Please use only valid characters " << validCharacters << std::endl;
 			return (false);
-		}
 	}
 	return (true);
 }
