@@ -19,9 +19,11 @@ all: $(NAME)
 $(NAME): $(OBJS) $(INCLS)
 	c++ $(CPP_FLAGS) $(OBJS) -I$(INCL_DIR) -o $(NAME)
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
-	mkdir -p $(OBJ_DIR)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp $(OBJ_DIR)
 	c++ $(CPP_FLAGS) -I$(INCL_DIR) -c $< -o $@
+
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
 clean:
 	rm -rf $(OBJ_DIR)

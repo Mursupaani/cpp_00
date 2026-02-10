@@ -1,5 +1,4 @@
 #include "Contact.hpp"
-#include <string>
 
 Contact::Contact() : _firstName("First name"), _lastName("Last name"),
 _nickName("Nick name"), _phoneNumber("Phone number"), _darkestSecret("Darkest secret")
