@@ -21,10 +21,10 @@ std::string getUserInput()
 	std::cout << "[A]DD\t\t- Add a new contact to phonebook" << std::endl;
 	std::cout << "[S]EARCH\t- Display contact" << std::endl;
 	std::cout << "[E]XIT\t\t- Add a new contact to phonebook" << std::endl;
-	std::cin >> input;
+	if (!std::getline(std::cin, input))
+		exit(EXIT_SUCCESS);
 	for (unsigned long i = 0; i < input.length(); ++i)
 		input[i] = std::tolower(input[i]);
-	std::cin.ignore();
 	return (input);
 }
 

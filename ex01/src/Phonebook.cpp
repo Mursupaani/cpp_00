@@ -111,7 +111,7 @@ void	Phonebook::chooseContact()
 			std::cout << "Please input a valid number between 0 and " + std::to_string(_size - 1) << std::endl;
 			continue ;
 		}
-		if (index >= _size)
+		if (index >= _size || index < 0)
 		{
 			std::cout << "Please choose an index between 0 and " + std::to_string(_size - 1) << std::endl;
 			continue ;
